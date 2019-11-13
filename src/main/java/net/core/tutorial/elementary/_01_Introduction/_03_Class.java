@@ -18,33 +18,33 @@ import java.lang.reflect.Parameter;
  исполняемый код, он выдаёт некоторый промежуточный байт-код, который используется для создания потока программы
  в реальном времени.
 
-  Class – это модель некоторой сущности, чертёж, по которому создаются экземпляры (объекты) данного класса.
-  Этот чертёж можно получить при помощи методов:
+ Class – это модель некоторой сущности, чертёж, по которому создаются экземпляры (объекты) данного класса.
+ Этот чертёж можно получить при помощи методов:
 
-  Class<?> clazz = object.getClass();
-  Class<?> clazz = ClassName.class;
+ Class<?> clazz = object.getClass();
+ Class<?> clazz = ClassName.class;
 
-  и статического метода
+ и статического метода
 
-  Class<T> Class.forName(String qualifiedClassName);
+ Class<T> Class.forName(String qualifiedClassName);
 
-  В данном случае объект clazz будет содержать в себе полное название внешнего класса.
-  clazz – это некоторый объект, который представляет в runtime данные (мета информацию) о классе объекта.
-  Основные методы класса Class позволяют получить данные об элементах класса и являются основой для Reflection:
+ В данном случае объект clazz будет содержать в себе полное название внешнего класса.
+ clazz – это некоторый объект, который представляет в runtime данные (мета информацию) о классе объекта.
+ Основные методы класса Class позволяют получить данные об элементах класса и являются основой для Reflection:
 
-  String getCanonicalName();
-  Field[] getFilds(String name);
-  Class[] getInterfaces();
-  Methods[] getMethods();
-  Constructor[] getConstructors();
+ String getCanonicalName();
+ Field[] getFilds(String name);
+ Class[] getInterfaces();
+ Methods[] getMethods();
+ Constructor[] getConstructors();
 
-  Для создания объекта класса через рефлексию можно использовать код
+ Для создания объекта класса через рефлексию можно использовать код
 
-  Object obj = Class.forName(className).newInstance();
+ Object obj = Class.forName(className).newInstance();
 
-  При этом будет использован дефолтный конструктор класса.
+ При этом будет использован дефолтный конструктор класса.
 
-  */
+ */
 
 public class _03_Class implements SomeInterface1, SomeInterface2 {
 

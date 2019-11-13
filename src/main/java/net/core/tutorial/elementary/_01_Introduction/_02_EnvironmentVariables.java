@@ -1,6 +1,6 @@
 package net.core.tutorial.elementary._01_Introduction;
 
- /**
+/**
  Переменные среды.
 
  Для запуска системных Java утилит (javac, java.exe, jar, javadoc и др.) из командной строки целесообразно
