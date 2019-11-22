@@ -48,7 +48,7 @@ class Animal_1 {
         this.animalName = animalName;
     }
 
-    public String getanimalName() {
+    public String getAnimalName() {
         return animalName;
     }
 
@@ -68,7 +68,7 @@ class Animal_2 {
         this.animalName = animalName;
     }
 
-    public String getanimalName() {
+    public String getAnimalName() {
         return animalName;
     }
 }
