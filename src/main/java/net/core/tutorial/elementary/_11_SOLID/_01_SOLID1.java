@@ -19,7 +19,7 @@ import java.util.List;
  I: Interface Segregation Principle (Принцип разделения интерфейса).
  D: Dependency Inversion Principle (Принцип инверсии зависимостей).
 
- 1. Single Responsibility Principle.
+ Single Responsibility Principle.
  Класс должен быть ответственен лишь за что-то одно. Если класс отвечает за решение нескольких задач, то его подсистемы,
  реализующие решение этих задач, оказываются связанными друг с другом. Изменения в одной такой подсистеме ведут к изменениям в другой.
 

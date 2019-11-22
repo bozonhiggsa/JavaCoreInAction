@@ -34,6 +34,20 @@ public class _03_SOLID3 {
         else return -1;
     }
 
+    // Внутри метода выполняется работа с объектами классов-наследников, но аргумент и выходной тип
+    // представлены классом предка
+    public static Animal4 chooseAnimalWithLessNumberOfLegs(List<Animal4> animals4) {
+
+        Animal4 tempAnimal = animals4.get(0);
+        for (Animal4 animal: animals4) {
+            if(animal.getNumberOfLegs() < tempAnimal.getNumberOfLegs()){
+                tempAnimal = animal;
+            }
+        }
+
+        return tempAnimal;
+    }
+
     public static void main(String[] args) {
 
         for (Animal3 animal: animals3) {
@@ -45,6 +59,10 @@ public class _03_SOLID3 {
         for (Animal4 animal: animals4) {
             System.out.println("Количество лап животного " + animal.getAnimalName() + " равно " + animal.getNumberOfLegs());
         }
+
+        System.out.println("----------------------");
+
+        System.out.println("Животное с меньшим числом лап: " + chooseAnimalWithLessNumberOfLegs(animals4).getAnimalName());
     }
 }
 
