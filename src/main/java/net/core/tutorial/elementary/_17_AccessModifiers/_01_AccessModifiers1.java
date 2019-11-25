@@ -44,14 +44,6 @@ package net.core.tutorial.elementary._17_AccessModifiers;
  модификатора являются неявно public final static переменными.
 
  3. Модификатор protected.
- Переменные или методы с модификатором protected, как и для случая с дефолтным модификатором, полноценно доступны
- по ссылке и через механизм наследования внутри классов из того же пакета, что и родной класс. Но, кроме этого,
- наследники из других пакетов внутри своих классов могут обращаться к статическим и нестатическим переменным и методам
- своего предка напрямую через механизм наследования или при помощи super (если необходимо обратиться к
- переменным/методам предка, которые перекрываются в классе наследника).
- К статическим переменным/методам предка внутри класса наследника можно обратиться через механизм наследования,
- по имени класса предка или по ссылке на объект предка.
- К нестатическим переменным/методам предка внутри класса наследника нельзя обратиться по ссылке на его объект.
 
  Можно использовать следующий подход (фича "Павлик Морозов"). Наследник, возможно из другого пакета, получает
  по наследству protected .method() предка и переопределяет его как public. Внутри этого метода вызывается
@@ -68,11 +60,17 @@ package net.core.tutorial.elementary._17_AccessModifiers;
 
 public class _01_AccessModifiers1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
 
         Child1 child1 = new Child1();
         System.out.println("This is number from private field of Parent: " + child1.getNum());
         System.out.println("This is String from overrided getValue: " + child1.getValue());
+
+        System.out.println("------------------------------");
+
+        SomeClass someClass1 = new SomeClass();
+        SomeClass someClass2 = someClass1.clone();
+        System.out.println("Исходный объект: " + someClass1.toString() + ", клон объекта: " + someClass2.toString());
     }
 }
 
@@ -96,5 +94,13 @@ class Child1 extends Parent1 {
 
     public String getValue() {
         return value + ", " + super.getValue();
+    }
+}
+
+class SomeClass implements Cloneable {
+
+    @Override
+    public SomeClass clone() throws CloneNotSupportedException {
+        return (SomeClass)super.clone();
     }
 }
