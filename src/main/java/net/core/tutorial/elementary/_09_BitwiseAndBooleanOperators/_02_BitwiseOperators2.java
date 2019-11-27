@@ -1,4 +1,4 @@
-package net.core.tutorial.elementary._09_BitwiseOperators;
+package net.core.tutorial.elementary._09_BitwiseAndBooleanOperators;
 
 /**
 
