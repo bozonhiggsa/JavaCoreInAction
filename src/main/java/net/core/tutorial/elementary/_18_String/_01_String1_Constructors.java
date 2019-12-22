@@ -15,15 +15,6 @@ import java.nio.charset.Charset;
  .toString();
  Класс String также реализует интерфейс Comparable, в котором объявлен метод .compareTo(T o).
 
-
- Наиболее эффективный способ создания строки – это создание строки при помощи строкового литерала:
-
- String s = "abc";
-
- При этом такая строка заносится в пул строк, в котором в единственном экземпляре хранятся уникальные
- по своему символьному составу строки. И при создании двух одинаковых строк будет создан фактически
- один объект с двумя или более ссылками на него. Такие объекты при сравнении через «==» дадут true.
-
  */
 
 public class _01_String1_Constructors {
@@ -35,8 +26,13 @@ public class _01_String1_Constructors {
         String s1 = new String();
 
         // Инициализация строки символами из массива chars от символа с номером index,
-        // длина фрагмента – numberChars.
-        char[] chars = {'a', 'b', 'c', 'd', 'e'};
+        // длина фрагмента – numberChars. Символы между пустыми ячейками слипаются
+        char[] chars = new char[10];
+        chars[0] = 'a';
+        chars[1] = 'b';
+        chars[7] = 'c';
+        chars[8] = 'd';
+        chars[9] = 'e';
         String s2 = new String(chars);
         System.out.println("s2 = " + s2);
         String s3 = new String(chars, 1, 3);
@@ -82,25 +78,5 @@ public class _01_String1_Constructors {
         String s12 = "abcdef";
         System.out.println("s12 = " + s12.replace('b', 'g'));
         System.out.println("s12 = " + s12);
-
-        System.out.println("----------------");
-
-        String s13 = "abc";
-        String s14 = "123";
-        System.out.println((s13 + s14) == "abc123"); // false
-        System.out.println((s13 + "123") == "abc123"); // false
-        System.out.println(("abc" + "123") == "abc123"); // true
-        // Если при конкатенации хотя бы один операнд является переменной, то в Runtime создаётся новый объект.
-        // Если же все операнды являются строковыми литералами (константами), то уже на этапе компиляции
-        // будет вычислен результирующий строковый литерал. И тогда сравнение его с таким же объектом из
-        // пула строк даст true. Поэтому и такое верно:
-        final String s15 = "abc";
-        String s16 = "123";
-        System.out.println((s15 + "123") == "abc123"); // true
-
-
-
-
-
     }
 }
