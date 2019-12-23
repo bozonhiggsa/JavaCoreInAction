@@ -42,8 +42,32 @@ public class _03_String3_ValueOf {
         System.out.println("------------------------");
 
         int number1 = Integer.valueOf(100);
+        // Делегирование извлечения десятичного числа из строки методу .parseInt()
         int number2 = Integer.valueOf("333");
         System.out.println("number1 = " + number1 + ", number2 = " + number2);
 
+        try{
+            int number3 = Integer.valueOf("It's not number");
+        }
+        catch (NumberFormatException e){
+            System.out.println("We got NumberFormatException");
+        }
+
+        String maybeNumber1 = "It's not number 345";
+        //String maybeNumber1 = "3453535";
+        char[] chars2 = maybeNumber1.toCharArray();
+        boolean mark = true;
+        for(char ch: chars2){
+            if(!Character.isDigit(ch)){
+                mark = false;
+                break;
+            }
+        }
+        if(mark){
+            System.out.println("We extract number from string, number = " + Integer.parseInt(maybeNumber1));
+        }
+        else{
+            System.out.println("String not contains only a number");
+        }
     }
 }
