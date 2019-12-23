@@ -41,6 +41,8 @@ public class _07_String7_Modify {
     public static void main(String[] args) {
 
         System.out.println("Hello".substring(1, 4));
+        // .subSequence() делегирует работу методу .substring()
+        System.out.println("Hello".subSequence(1, 4));
         System.out.println("Hello".concat(", friends!"));
 
         String message1 = "     Everything is good, good.   ";
