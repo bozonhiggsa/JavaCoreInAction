@@ -1,6 +1,7 @@
 package net.core.tutorial.proficient._01_RegEx.task;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -8,11 +9,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by Ihor on 13.08.2018.
+
+ Простой пример использования потоков ввода/вывода, чтения/записи в файл, использования
+ регулярных выражений.
+
  */
+
 public class Main {
 
     static int num;
+    public static String FILE_NAME = "f:/temp/text.txt";
+    public static String ENCODING = "utf-8";
 
     public static void main(String[] args) {
 
@@ -37,7 +44,7 @@ public class Main {
         }
 
         try {
-            OutputStream outputStream = new FileOutputStream("f:/temp/text.txt");
+            OutputStream outputStream = new FileOutputStream(FILE_NAME);
             for (int i = 0; i < num; i++) {
                 if(i != (num - 1)){
                     lines[i] = lines[i] + "\r\n";
@@ -61,7 +68,7 @@ public class Main {
 
     public void show(FileInputStream fis){
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(fis, Charset.forName(ENCODING)));
         String[] inputString = new String[num];
         for(int i = 0; i < num; i++) {
             try {
@@ -86,6 +93,7 @@ public class Main {
         Set<String> uniqueChars = new HashSet<>();
         for(int i = 0; i < input.length()-1; i++){
             String regex = input.substring(i,i+1);
+            // string.replaceFirst() даёт такой же результат, как и matcher.replaceFirst()
             input = input.replaceFirst(regex, " ");
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(input);
