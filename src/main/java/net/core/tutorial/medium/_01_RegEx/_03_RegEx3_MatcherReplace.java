@@ -1,4 +1,4 @@
-package net.core.tutorial.proficient._01_RegEx;
+package net.core.tutorial.medium._01_RegEx;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package net.core.tutorial.proficient._01_RegEx.task;
+package net.core.tutorial.medium._01_RegEx.task;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 public class Main {
 
     static int num;
-    public static String FILE_NAME = "f:/temp/text.txt";
+    public static String FILE_NAME = "c:/temp/text.txt";
     public static String ENCODING = "utf-8";
 
     public static void main(String[] args) {
@@ -59,7 +59,7 @@ public class Main {
 
         FileInputStream fis = null;
         try {
-            fis = new FileInputStream("f:/temp/text.txt");
+            fis = new FileInputStream(FILE_NAME);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
