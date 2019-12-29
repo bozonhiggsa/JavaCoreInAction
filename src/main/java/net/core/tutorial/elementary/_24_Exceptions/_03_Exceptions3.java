@@ -14,18 +14,6 @@ package net.core.tutorial.elementary._24_Exceptions;
 
  private static final long serialVersionUID = someLong;
 
- В блоке catch может быть несколько вариантов перехватываемых исключений:
-
- catch(Exception1 | Exception2 | Exception3) {
- }
-
- После секции catch может быть секция finally{}, которая выполняется в любом случае, независимо от того,
- выполнилась ли секция try или секция catch.
- Можно использовать несколько последовательных секций catch, но необходимо сначала отлавливать
- более узкие исключения (исключения-наследники), а затем уже исключения-предки.
- Если в одной секции catch создаётся и пробрасывается новый объект исключения, то такое исключение
- не может быть перехвачено в другой последовательной секции catch.
-
  В Java есть специальная коллекция – Stack. Это коллекция, у которой есть методы «добавить элемент» и
  «достать элемент» в режиме LIFO. Первым будет взят элемент, который добавлен последним.
 
@@ -46,21 +34,97 @@ package net.core.tutorial.elementary._24_Exceptions;
  этого метода с помощью функции .getMethodName().
 
  throw e;
- пробросить исключение дальше
-
- Две последовательные секции catch не могут перехватывать одно и то же исключение. Секции try и catch могут быть
- пустыми. Секции catch может не быть (а соответственно может не быть и указания перехватываемого исключения),
- если есть секция finally.
-
- Не может быть двух секций try подряд.
-
- После секции try нельзя размещать выражение. Сразу за try должна располагаться секция catch и/или finally.
- Но если используется секция try-with-resources, а возможное исключение в этой секции пробрасывается дальше
- в сигнатуре метода, то секций catch и finally может не быть.
-
- Не может быть двух секций finally подряд.
+ пробросить исключение дальше.
 
  */
 
 public class _03_Exceptions3 {
+
+    public static void main(String[] args) {
+
+        try{
+            method1();
+        }
+        catch (UserAggregateException e){
+            //e.printStackTrace();
+            System.out.println(e.getMessage());
+            StackTraceElement[] stackTrace = e.getStackTrace();
+            for(StackTraceElement element: e.getStackTrace()){
+                String methodName = element.getMethodName();
+                int lineNumber = element.getLineNumber();
+                System.out.println("Исключение возникло в методе: " + methodName + ", в строке " + lineNumber);
+            }
+        }
+    }
+
+    public static void method1() throws UserException1, UserException2, UserException3 {
+
+        method2();
+    }
+
+    public static void method2() throws UserException1, UserException2, UserException3 {
+
+        int variant = 0;
+
+        switch (variant){
+            case 0:
+                method3();
+                break;
+            case 1:
+                method4();
+                break;
+            case 2:
+                method5();
+                break;
+        }
+    }
+
+    public static void method3() throws UserException1 {
+
+        throw new UserException1("Исключение UserException1 возникло в методе .method3()");
+    }
+
+    public static void method4() throws UserException2 {
+
+        throw new UserException2("Исключение UserException2 возникло в методе .method4()");
+    }
+
+    public static void method5() throws UserException3 {
+
+        throw new UserException3("Исключение UserException3 возникло в методе .method5()");
+    }
+}
+
+class UserAggregateException extends Exception {
+
+    public UserAggregateException(String message) {
+        super(message);
+    }
+}
+
+class UserException1 extends UserAggregateException {
+
+    private static final long serialVersionUID = 101000L;
+
+    public UserException1(String message) {
+        super(message);
+    }
+}
+
+class UserException2 extends UserAggregateException {
+
+    private static final long serialVersionUID = 110000L;
+
+    public UserException2(String message) {
+        super(message);
+    }
+}
+
+class UserException3 extends UserAggregateException {
+
+    private static final long serialVersionUID = 100000L;
+
+    public UserException3(String message) {
+        super(message);
+    }
 }
