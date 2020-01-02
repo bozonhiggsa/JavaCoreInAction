@@ -2,6 +2,8 @@ package net.core.tutorial.medium._24_Exceptions;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.SocketException;
+import java.rmi.AccessException;
 
 /**
 
@@ -18,7 +20,7 @@ import java.io.IOException;
  имеется return, то будет возвращено значение из секции finally.
 
  Если метод возвращает значение и в секции try или catch имеется return, возвращающий значение, а в секции
- finally переопределяется это значение, то секция finally будет выполнена, но возвращено будет значение,
+ finally переопределяется это значение, но нет return, то секция finally будет выполнена, но возвращено будет значение,
  которое было кэшировано (запомнено) при return из секции try или catch.
 
  Если метод возвращает значение и есть секции try-catch-finally, то хотя бы в одной из этих секций должен
@@ -37,6 +39,9 @@ import java.io.IOException;
  Не надо располагать логику после секции catch, если в секции try происходит инициализация/настройка объектов,
  с которыми она работает. Ведь в случае исключения в секции try объекты не будут настроены.
  Такой код, даже если он сам напрямую не может вызвать исключение, лучше располагать в секции try.
+
+ Если в секции finally возникает исключение, то оно перезатирает те исключения, которые были брошены в
+ секциях try или catch. И информация о последних теряется.
 
  */
 
@@ -65,6 +70,19 @@ public class _05_Exceptions5 {
         System.out.println("-----------------------");
 
         System.out.println(SomeClass1.someMethod4());
+
+        System.out.println("-----------------------");
+
+        System.out.println(SomeClass1.someMethod5());
+
+        System.out.println("-----------------------");
+
+        try {
+            SomeClass1.someMethod6();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(String.format("Перехвачено исключение: %s", e.getMessage()));
+        }
     }
 }
 
@@ -78,7 +96,7 @@ class SomeClass1 {
     public static String someMethod2() throws IOException {
 
         try{
-            throw new IOException("Исключение IOException");
+            throw new IOException("Исключение типа IOException");
         }
         finally {
             System.out.println("Отработала секция finally");
@@ -95,9 +113,10 @@ class SomeClass1 {
                 System.out.println("Секция try отработала без исключения");
                 return;
             }
-            throw new FileNotFoundException("Исключение FileNotFoundException");
+            throw new FileNotFoundException("В секции try сгенерировано исключение FileNotFoundException");
         }
         catch (Exception e){
+            System.out.println(String.format("Перехвачено исключение: %s", e.getMessage()));
             if(number < -25){
                 System.out.println("Выполнилось условие в секции catch");
                 return;
@@ -119,22 +138,64 @@ class SomeClass1 {
 
         try{
             if(number > 0){
-                return 1;
+                System.out.println("Условие в секции try выполнилось");
+                return number;
             }
             throw new FileNotFoundException("Исключение FileNotFoundException");
         }
         catch (Exception e){
             if(number < -25){
-                return 2;
+                System.out.println("Условие в секции catch выполнилось");
+                return number;
             }
             System.out.println("Секция catch отработала до конца");
         }
         finally {
-            if(number > 0){
-                return 3;
+            if(number > 0 || number < -25){
+                return number*100;
             }
             System.out.println("Секция finally отработала до конца");
         }
         return 0;
+    }
+
+    public static int someMethod5() {
+
+        int number = (int) ((Math.random() - 0.5) * 100);
+
+        try{
+            if(number > 0){
+                System.out.println("Условие в секции try выполнилось");
+                return number;
+            }
+            throw new IOException("Исключение IOException");
+        }
+        catch (Exception e){
+            if(number < -25){
+                System.out.println("Условие в секции catch выполнилось");
+                return number;
+            }
+            System.out.println("Секция catch отработала до конца");
+        }
+        finally {
+            if(number > 0 || number < -25){
+                number = number*100;
+            }
+            System.out.println("Секция finally отработала до конца");
+        }
+        return 0;
+    }
+
+    public static void someMethod6() throws IOException {
+
+        try{
+            throw new FileNotFoundException("Исключение FileNotFoundException");
+        }
+        catch (IOException e){
+            throw new AccessException("Исключение AccessException");
+        }
+        finally {
+            throw new SocketException("Исключение SocketException");
+        }
     }
 }
