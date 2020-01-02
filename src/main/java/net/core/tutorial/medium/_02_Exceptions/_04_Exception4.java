@@ -1,4 +1,4 @@
-package net.core.tutorial.medium._24_Exceptions;
+package net.core.tutorial.medium._02_Exceptions;
 
 import java.io.FileNotFoundException;
 
