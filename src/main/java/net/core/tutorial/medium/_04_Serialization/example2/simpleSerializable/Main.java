@@ -24,6 +24,7 @@ public class Main {
 
         System.out.println(reader);
 
+        // Создание потока, связанного с папкой проекта src/main/resources/
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("src/main/resources/test.bin")); ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("src/main/resources/test.bin"))) {
             outputStream.writeObject(reader);
 

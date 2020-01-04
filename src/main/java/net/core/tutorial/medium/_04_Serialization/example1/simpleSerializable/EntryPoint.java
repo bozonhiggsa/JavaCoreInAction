@@ -13,6 +13,7 @@ public class EntryPoint {
 
         DataObject dataObject = new DataObject();
         dataObject.setText("Howdy y'all, my friends!");
+        // Создание потока, связанного с папкой проекта target/classes/
         FileOutputStream outputStream = new FileOutputStream(String
                                                           .format("%s%s", EntryPoint.class.getClass().getResource("/").getPath(), "store.bin"));
         ObjectOutputStream out = new ObjectOutputStream(outputStream);
