@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE logback>
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger{1} # %line %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>LOGGERID</key>
+            <defaultValue>basic</defaultValue>
+        </discriminator>
+        <sift>
+            <appender name="/tmp/log-${LOGGERID}" class="ch.qos.logback.core.FileAppender">
+                <file>d:/tmp/log-${LOGGERID}.log</file>
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                    <pattern>%d [%thread] %-5level %mdc %logger{1} - %msg %n</pattern>
+                </layout>
+            </appender>
+        </sift>
+    </appender>
+
+    <logger name="net.core.tutorial.medium._07_EntryToCollectionStream">
+        <level value="debug"/>
+    </logger>
+
+    <root>
+        <level value="warn"/>
+        <appender-ref ref="console"/>
+        <appender-ref ref="SIFT"/>
+    </root>
+</configuration>

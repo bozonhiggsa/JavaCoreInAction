@@ -2,7 +2,8 @@
 
 Technologies:
 - Java 8;
-- JUnit 4.
+- JUnit 4;
+- Logback.
 
 Prerequisites:
 - Maven 3;
