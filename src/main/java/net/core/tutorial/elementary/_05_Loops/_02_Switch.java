@@ -2,7 +2,7 @@ package net.core.tutorial.elementary._05_Loops;
 
 /**
 
- Switch
+ Switch.
 
  Это оператор многозначного выбора.
 
