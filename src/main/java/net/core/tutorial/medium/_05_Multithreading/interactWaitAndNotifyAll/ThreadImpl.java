@@ -7,7 +7,7 @@ package net.core.tutorial.medium._05_Multithreading.interactWaitAndNotifyAll;
  */
 public class ThreadImpl extends Thread {
 
-    public static Object monitor = new Object();
+    public final static Object monitor = new Object();
     private String message;
 
     public ThreadImpl(String message) {

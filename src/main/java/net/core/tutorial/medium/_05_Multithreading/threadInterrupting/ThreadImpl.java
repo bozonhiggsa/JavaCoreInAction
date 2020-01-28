@@ -33,8 +33,8 @@ public class ThreadImpl extends Thread {
                     }
                 } catch (InterruptedException e) {
                     System.out.println(Thread.currentThread().getName() + " was interrupt therefor exception");
-                    System.out.println("isInterrupted for " + Thread.currentThread().getName() + " has reseted to "
-                            + Thread.currentThread().isInterrupted() +" again");
+                    System.out.println("isInterrupted for " + Thread.currentThread().getName() + " retains: "
+                            + Thread.currentThread().isInterrupted() +" after exception");
                     return;
                 }
             }

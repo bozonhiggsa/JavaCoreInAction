@@ -38,7 +38,7 @@ public class EntryPoint {
         }
         Thread.sleep(300);
         if(!thread1.isAlive()){
-            System.out.println("method .isInterrupted() invoked on dead thread return: " + thread1.isInterrupted());
+            System.out.println("method .isInterrupted() invoked on dead thread returns: " + thread1.isInterrupted());
         }
     }
 }

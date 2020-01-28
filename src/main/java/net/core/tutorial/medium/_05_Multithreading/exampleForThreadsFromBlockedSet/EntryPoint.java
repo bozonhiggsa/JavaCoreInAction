@@ -25,7 +25,7 @@ public class EntryPoint {
     private synchronized void hello(int threadId){
         System.out.println(threadId + " - I'm here");
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();

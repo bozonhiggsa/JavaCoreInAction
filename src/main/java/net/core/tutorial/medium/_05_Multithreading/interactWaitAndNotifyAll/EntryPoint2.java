@@ -9,6 +9,7 @@ package net.core.tutorial.medium._05_Multithreading.interactWaitAndNotifyAll;
 public class EntryPoint2 extends Thread {
 
     private String message;
+    private final static Object object = new Object();
 
     public EntryPoint2(String message) {
         this.message = message;
@@ -21,6 +22,7 @@ public class EntryPoint2 extends Thread {
                     EntryPoint2.class.notify();
                     EntryPoint2.class.wait();
                     System.out.println(message);
+                    staticMethod();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -32,5 +34,13 @@ public class EntryPoint2 extends Thread {
 
         new EntryPoint2("Thread A").start();
         new EntryPoint2("Thread B").start();
+    }
+
+    public static void staticMethod() {
+        synchronized (object) {
+            while (true) {
+                break;
+            }
+        }
     }
 }

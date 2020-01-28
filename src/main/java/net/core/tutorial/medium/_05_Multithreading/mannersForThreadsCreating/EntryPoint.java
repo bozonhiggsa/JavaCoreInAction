@@ -36,5 +36,18 @@ public class EntryPoint {
             }
         });
         thread4.start();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Стартовать поток можно только раз, попытка повторного старта приведёт к исключению
+        try {
+            thread4.start();
+        } catch (IllegalThreadStateException e) {
+            System.out.println("Возникло исключение: " + e.toString());
+        }
     }
 }

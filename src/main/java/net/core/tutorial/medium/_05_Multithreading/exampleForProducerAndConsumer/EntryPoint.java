@@ -26,5 +26,23 @@ public class EntryPoint {
         thread3.start();
         thread4.start();
         thread5.start();
+
+        Thread.sleep(3000);
+
+        if(thread1.isAlive()){
+            thread1.interrupt();
+        }
+        if(thread2.isAlive()){
+            thread2.interrupt();
+        }
+        if(thread3.isAlive()){
+            thread3.interrupt();
+        }
+        if(thread4.isAlive()){
+            thread4.interrupt();
+        }
+        if(thread5.isAlive()){
+            thread5.interrupt();
+        }
     }
 }
