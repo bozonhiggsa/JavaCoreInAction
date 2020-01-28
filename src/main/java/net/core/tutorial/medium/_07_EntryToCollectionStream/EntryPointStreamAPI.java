@@ -79,7 +79,7 @@ public class EntryPointStreamAPI {
 
         List<String> strings = new LinkedList<>();
         Collection<Integer> users = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
-        List<Integer> names = users.parallelStream()
+        List<Integer> names = users.stream()
                 .filter(n -> {
                     strings.add("f-" + n);
                     return n % 2 == 0;
