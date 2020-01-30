@@ -8,7 +8,11 @@ public class SimpleDateFormatAndThreadLocalTest {
     public void testParsingDateFromVariousThreads() throws Exception {
 
         new SimpleDateFormatAndThreadLocal().parsingDateFromVariousThreads();
-        System.out.println("-----------------------------");
+    }
+
+    @Test
+    public void testFormattingDateFromVariousThreads() throws Exception {
+
         new SimpleDateFormatAndThreadLocal().formattingDateFromVariousThreads();
     }
 }

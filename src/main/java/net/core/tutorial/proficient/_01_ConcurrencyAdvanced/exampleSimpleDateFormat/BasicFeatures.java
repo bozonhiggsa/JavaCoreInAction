@@ -9,7 +9,7 @@ import java.util.TimeZone;
 
 public class BasicFeatures {
 
-    public static void main(String[] args) throws ParseException {
+    public void overviewBasicFeatures() throws ParseException {
 
         SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yy:hh:mm");
         String visualDate1 = formatter1.format(new Date(System.currentTimeMillis()));
@@ -58,8 +58,7 @@ public class BasicFeatures {
         System.out.println((simpleDateFormat.format(now)));
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("America/New_York"));
         System.out.println((simpleDateFormat.format(now)));
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+3:00"));
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+2:00"));
         System.out.println((simpleDateFormat.format(now)));
-
     }
 }
