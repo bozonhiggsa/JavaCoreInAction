@@ -78,7 +78,6 @@ public class _02_Serialization2 {
 
         System.out.println(someClass == someClassNew);
     }
-
 }
 
 class SomeClass extends SomeParent implements Serializable {
