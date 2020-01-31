@@ -1,5 +1,6 @@
 package net.core.tutorial.elementary._00_Main;
 
+import java.io.*;
 import java.util.Date;
 
 /**
@@ -28,9 +29,35 @@ import java.util.Date;
  */
 public class _02_System {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         System.out.println("Час назад время было следующим:\r\n" +
                 new Date(System.currentTimeMillis() - 3600 * 1000));
+
+        PrintStream standardOut = System.out;
+
+        OutputStream outputStream = new FileOutputStream("console_substitution.txt");
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+
+        System.out.println("Время в нс, отсчитываемое от некоторого фиксированного момента,\r\n" +
+                "который является точкой отсчёта для данной запущенной JVM:\r\n" +
+                System.nanoTime());
+
+        try {
+            outputStream.flush();
+            outputStream.close();
+            printStream.flush();
+            printStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.setOut(standardOut);
+
+        System.out.println("----------------------");
+        System.out.println("Время в нс, отсчитываемое от некоторого фиксированного момента,\r\n" +
+                "который является точкой отсчёта для данной запущенной JVM:\r\n" +
+                System.nanoTime());
     }
 }
