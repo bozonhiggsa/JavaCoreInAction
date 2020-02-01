@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ *
  * Reading a file and creating its copy with the use of commons-fileupload
  * @author Ihor Savchenko
  * @version 1.0

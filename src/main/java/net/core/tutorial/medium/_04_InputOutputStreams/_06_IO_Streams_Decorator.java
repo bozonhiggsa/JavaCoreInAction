@@ -8,7 +8,7 @@ import java.util.zip.GZIPOutputStream;
  * Пояснение к паттерну Decorator.
  */
 
-public class _07_IO_Streams_Decorator {
+public class _06_IO_Streams_Decorator {
 
     public static void main(String[] args) throws IOException {
 

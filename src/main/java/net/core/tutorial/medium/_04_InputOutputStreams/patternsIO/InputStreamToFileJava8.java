@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.nio.file.StandardCopyOption;
 
 /**
+ *
  * Reading a file and creating its copy with the use of Java 8 (java.nio)
  * @author Ihor Savchenko
  * @version 1.0

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ *
  * Reading a file and creating its copy with the use of Guava
  * @author Ihor Savchenko
  * @version 1.0
