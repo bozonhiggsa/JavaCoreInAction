@@ -3,7 +3,11 @@
 Technologies:
 - Java 8;
 - JUnit 4;
-- Logback.
+- Logback;
+- Json;
+- Guava;
+- Commons-fileupload.
+
 
 Prerequisites:
 - Maven 3;
