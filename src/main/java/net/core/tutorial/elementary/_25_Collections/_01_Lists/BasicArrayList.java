@@ -42,11 +42,5 @@ public class BasicArrayList {
         // Для преобразования коллекции в потокобезопасную, можно использовать специальные
         // методы утилитарного класса Collections
         final List<Integer> threadSafeList = Collections.synchronizedList(list2);
-
-        // Если необходимо, для реализации принципа инкапсуляции, чтобы из других классов
-        // нельзя было изменять приватный список текущего класса, то можно в публичном геттере
-        // данного класса возвращать не саму коллекцию, а её преобразованный при помощи
-        // метода Collections.unmodifiableList(List) вариант
-        List<Integer> unmodifiableList = Collections.unmodifiableList(list2);
     }
 }
