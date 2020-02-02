@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TouristVouchers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="input2.xsd">
+    <TouristVoucher>
+        <TypeVoucher>Leisure</TypeVoucher>
+        <Country>Italy</Country>
+        <NumberDaysNights>14</NumberDaysNights>
+        <Transport voucher_include="voucher">plane</Transport>
+        <Transport voucher_include="voucher">bus</Transport>
+        <Transport voucher_include="voucher">taxi</Transport>
+        <Transport voucher_include="voucher">train</Transport>
+        <HotelCharacteristics>
+            <Stars>3</Stars>
+            <Food hotel_include="hotel">RO</Food>
+            <Food hotel_include="hotel">BB</Food>
+            <Food hotel_include="hotel">HB</Food>
+            <Food hotel_include="hotel">HB+</Food>
+            <Food hotel_include="hotel">FB</Food>
+            <Food hotel_include="hotel">FB+</Food>
+            <TV hotel_include="hotel">21 inches</TV>
+            <TV hotel_include="hotel">27 inches</TV>
+            <Conditioner hotel_include="hotel">Aux</Conditioner>
+            <Conditioner hotel_include="hotel">Hitachi</Conditioner>
+            <Conditioner hotel_include="hotel">Fuji</Conditioner>
+            <Apartments hotel_include="hotel">1</Apartments>
+            <Apartments hotel_include="hotel">2</Apartments>
+            <Apartments hotel_include="hotel">3</Apartments>
+        </HotelCharacteristics>
+        <Cost>
+            <Money>500</Money>
+            <Include>
+                <Transport voucher_include="include">plane</Transport>
+                <Transport voucher_include="include">taxi</Transport>
+                <TV hotel_include="include">21 inches</TV>
+                <Apartments hotel_include="include">2</Apartments>
+                <Food hotel_include="include">BB</Food>
+            </Include>
+        </Cost>
+    </TouristVoucher>
+
+    <TouristVoucher>
+        <TypeVoucher>Business Trip</TypeVoucher>
+        <Country>England</Country>
+        <NumberDaysNights>7</NumberDaysNights>
+        <Transport voucher_include="voucher">plane</Transport>
+        <Transport voucher_include="voucher">bus</Transport>
+        <Transport voucher_include="voucher">car</Transport>
+        <Transport voucher_include="voucher">boat</Transport>
+        <Transport voucher_include="voucher">train</Transport>
+        <HotelCharacteristics>
+            <Stars>4</Stars>
+            <Food hotel_include="hotel">HB</Food>
+            <Food hotel_include="hotel">HB+</Food>
+            <Food hotel_include="hotel">FB</Food>
+            <Food hotel_include="hotel">FB+</Food>
+            <Food hotel_include="hotel">AI</Food>
+            <TV hotel_include="hotel">21 inches</TV>
+            <TV hotel_include="hotel">27 inches</TV>
+            <TV hotel_include="hotel">33 inches</TV>
+            <Conditioner hotel_include="hotel">Aux</Conditioner>
+            <Conditioner hotel_include="hotel">Fuji</Conditioner>
+            <Apartments hotel_include="hotel">1</Apartments>
+            <Apartments hotel_include="hotel">2</Apartments>
+            <Apartments hotel_include="hotel">3</Apartments>
+            <Apartments hotel_include="hotel">4</Apartments>
+        </HotelCharacteristics>
+        <Cost>
+            <Money>900</Money>
+            <Include>
+                <Transport voucher_include="include">train</Transport>
+                <Transport voucher_include="include">bus</Transport>
+                <TV hotel_include="include">21 inches</TV>
+                <Conditioner hotel_include="include">Aux</Conditioner>
+                <Apartments hotel_include="include">3</Apartments>
+                <Food hotel_include="include">HB+</Food>
+            </Include>
+        </Cost>
+    </TouristVoucher>
+
+    <TouristVoucher>
+        <TypeVoucher>Travelling</TypeVoucher>
+        <Country>Spain</Country>
+        <NumberDaysNights>21</NumberDaysNights>
+        <Transport voucher_include="voucher">plane</Transport>
+        <Transport voucher_include="voucher">bus</Transport>
+        <Transport voucher_include="voucher">taxi</Transport>
+        <HotelCharacteristics>
+            <Stars>5</Stars>
+            <Food hotel_include="hotel">HB</Food>
+            <Food hotel_include="hotel">HB+</Food>
+            <Food hotel_include="hotel">FB</Food>
+            <Food hotel_include="hotel">FB+</Food>
+            <Food hotel_include="hotel">AI</Food>
+            <Food hotel_include="hotel">AIP</Food>
+            <Food hotel_include="hotel">UAI</Food>
+            <TV hotel_include="hotel">21 inches</TV>
+            <TV hotel_include="hotel">27 inches</TV>
+            <TV hotel_include="hotel">33 inches</TV>
+            <Conditioner hotel_include="hotel">Aux</Conditioner>
+            <Conditioner hotel_include="hotel">Fuji</Conditioner>
+            <Apartments hotel_include="hotel">1</Apartments>
+            <Apartments hotel_include="hotel">2</Apartments>
+            <Apartments hotel_include="hotel">3</Apartments>
+            <Apartments hotel_include="hotel">4</Apartments>
+            <Apartments hotel_include="hotel">5</Apartments>
+        </HotelCharacteristics>
+        <Cost>
+            <Money>1200</Money>
+            <Include>
+                <Transport voucher_include="include">boat</Transport>
+                <Transport voucher_include="include">bus</Transport>
+                <TV hotel_include="include">27 inches</TV>
+                <Conditioner hotel_include="include">Fuji</Conditioner>
+                <Apartments hotel_include="include">4</Apartments>
+                <Food hotel_include="include">AI</Food>
+            </Include>
+        </Cost>
+    </TouristVoucher>
+
+</TouristVouchers>

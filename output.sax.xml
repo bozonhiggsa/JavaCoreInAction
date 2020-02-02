@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TouristVouchers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="input.xsd">
+    <TouristVoucher>
+        <TypeVoucher>Leisure</TypeVoucher>
+        <Country>Italy</Country>
+        <NumberDaysNights>14</NumberDaysNights>
+        <Transport>plane</Transport>
+        <Transport>bus</Transport>
+        <Transport>taxi</Transport>
+        <Transport>train</Transport>
+        <HotelCharacteristics>
+            <Stars>3</Stars>
+            <Food>RO</Food>
+            <Food>BB</Food>
+            <Food>HB</Food>
+            <Food>HB+</Food>
+            <Food>FB</Food>
+            <Food>FB+</Food>
+            <TV>21 inches</TV>
+            <TV>27 inches</TV>
+            <Conditioner>Aux</Conditioner>
+            <Conditioner>Hitachi</Conditioner>
+            <Conditioner>Fuji</Conditioner>
+            <Apartments>1</Apartments>
+            <Apartments>2</Apartments>
+            <Apartments>3</Apartments>
+        </HotelCharacteristics>
+        <Cost>
+            <Money>500.0</Money>
+            <Include>
+                <IncludeTransport>plane</IncludeTransport>
+                <IncludeTransport>taxi</IncludeTransport>
+                <IncludeTV>21 inches</IncludeTV>
+                <IncludeApartments>2</IncludeApartments>
+                <IncludeFood>BB</IncludeFood>
+            </Include>
+        </Cost>
+    </TouristVoucher>
+    <TouristVoucher>
+        <TypeVoucher>Business Trip</TypeVoucher>
+        <Country>England</Country>
+        <NumberDaysNights>7</NumberDaysNights>
+        <Transport>plane</Transport>
+        <Transport>bus</Transport>
+        <Transport>car</Transport>
+        <Transport>boat</Transport>
+        <Transport>train</Transport>
+        <HotelCharacteristics>
+            <Stars>4</Stars>
+            <Food>HB</Food>
+            <Food>HB+</Food>
+            <Food>FB</Food>
+            <Food>FB+</Food>
+            <Food>AI</Food>
+            <TV>21 inches</TV>
+            <TV>27 inches</TV>
+            <TV>33 inches</TV>
+            <Conditioner>Aux</Conditioner>
+            <Conditioner>Fuji</Conditioner>
+            <Apartments>1</Apartments>
+            <Apartments>2</Apartments>
+            <Apartments>3</Apartments>
+            <Apartments>4</Apartments>
+        </HotelCharacteristics>
+        <Cost>
+            <Money>900.0</Money>
+            <Include>
+                <IncludeTransport>train</IncludeTransport>
+                <IncludeTransport>bus</IncludeTransport>
+                <IncludeTV>21 inches</IncludeTV>
+                <IncludeConditioner>Aux</IncludeConditioner>
+                <IncludeApartments>3</IncludeApartments>
+                <IncludeFood>HB+</IncludeFood>
+            </Include>
+        </Cost>
+    </TouristVoucher>
+    <TouristVoucher>
+        <TypeVoucher>Travelling</TypeVoucher>
+        <Country>Spain</Country>
+        <NumberDaysNights>21</NumberDaysNights>
+        <Transport>plane</Transport>
+        <Transport>bus</Transport>
+        <Transport>taxi</Transport>
+        <HotelCharacteristics>
+            <Stars>5</Stars>
+            <Food>HB</Food>
+            <Food>HB+</Food>
+            <Food>FB</Food>
+            <Food>FB+</Food>
+            <Food>AI</Food>
+            <Food>AIP</Food>
+            <Food>UAI</Food>
+            <TV>21 inches</TV>
+            <TV>27 inches</TV>
+            <TV>33 inches</TV>
+            <Conditioner>Aux</Conditioner>
+            <Conditioner>Fuji</Conditioner>
+            <Apartments>1</Apartments>
+            <Apartments>2</Apartments>
+            <Apartments>3</Apartments>
+            <Apartments>4</Apartments>
+            <Apartments>5</Apartments>
+        </HotelCharacteristics>
+        <Cost>
+            <Money>1200.0</Money>
+            <Include>
+                <IncludeTransport>boat</IncludeTransport>
+                <IncludeTransport>bus</IncludeTransport>
+                <IncludeTV>27 inches</IncludeTV>
+                <IncludeConditioner>Fuji</IncludeConditioner>
+                <IncludeApartments>4</IncludeApartments>
+                <IncludeFood>AI</IncludeFood>
+            </Include>
+        </Cost>
+    </TouristVoucher>
+</TouristVouchers>

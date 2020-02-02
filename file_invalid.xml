@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TouristVouchers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="input.xsd">
+    <TouristVoucher>
+        <TypeVoucher>Leisure</TypeVoucher>
+        <TypeVoucher>Leisure</TypeVoucher>
+        <Country>Italy</Country>
+        <NumberDaysNights>14</NumberDaysNights>
+        <Transport>plane</Transport>
+        <Transport>bus</Transport>
+        <Transport>taxi</Transport>
+        <Transport>train</Transport>
+        <HotelCharacteristics>
+            <Stars>3</Stars>
+            <Food>RO56</Food>
+            <Food>BB</Food>
+            <Food>HB</Food>
+            <Food>HB+</Food>
+            <Food>FB</Food>
+            <Food>FB+</Food>
+            <TV>21 inches</TV>
+            <TV>27 inches</TV>
+            <Conditioner>Aux</Conditioner>
+            <Conditioner>Hitachi</Conditioner>
+            <Conditioner>Fuji</Conditioner>
+            <Apartments>1</Apartments>
+            <Apartments>2</Apartments>
+            <Apartments>3</Apartments>
+        </HotelCharacteristics>
+        <Cost>
+            <Money>500</Money>
+            <Include>
+                <Transport>plane</Transport>
+                <Transport>taxi</Transport>
+                <TV>21 inches</TV>
+                <Apartments>2</Apartments>
+                <Food>BB</Food>
+            </Include>
+        </Cost>
+    </TouristVoucher>
+
+</TouristVouchers>

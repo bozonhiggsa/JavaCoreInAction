@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="TouristVouchers">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="TouristVoucher" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="TouristVoucher">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TypeVoucher" type="xsd:string"/>
+                <xsd:element name="Country" type="xsd:string"/>
+                <xsd:element name="NumberDaysNights" type="xsd:int"/>
+                <xsd:element ref="Transport" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element ref="HotelCharacteristics"/>
+                <xsd:element ref="Cost"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:simpleType name="KindOfTransport">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="bus" />
+            <xsd:enumeration value="plane" />
+            <xsd:enumeration value="boat" />
+            <xsd:enumeration value="train" />
+            <xsd:enumeration value="taxi" />
+            <xsd:enumeration value="car" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:attribute name="voucher_include">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="voucher" />
+                <xsd:enumeration value="include" />
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+
+    <xsd:element name="Transport">
+            <xsd:complexType>
+                <xsd:simpleContent>
+                    <xsd:extension base="KindOfTransport">
+                        <xsd:attribute ref="voucher_include" use="required"/>
+                    </xsd:extension>
+                </xsd:simpleContent>
+            </xsd:complexType>
+    </xsd:element>
+
+    <xsd:simpleType name="KindOfFood">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="([A-Z]{2})[A-Z|\\+]?"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:attribute name="hotel_include">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="hotel" />
+                <xsd:enumeration value="include" />
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:attribute>
+
+    <xsd:element name="Food">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="KindOfFood">
+                    <xsd:attribute ref="hotel_include" use="required"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:simpleType name="KindOfApartments">
+        <xsd:restriction base="xsd:int">
+            <xsd:enumeration value="1" />
+            <xsd:enumeration value="2" />
+            <xsd:enumeration value="3" />
+            <xsd:enumeration value="4" />
+            <xsd:enumeration value="5" />
+            <xsd:enumeration value="6" />
+            <xsd:enumeration value="7" />
+            <xsd:enumeration value="8" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:element name="Apartments">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="KindOfApartments">
+                    <xsd:attribute ref="hotel_include" use="required"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="TV">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="hotel_include" use="required"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Conditioner">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute ref="hotel_include" use="required"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+
+
+
+    <xsd:element name="HotelCharacteristics">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Stars">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:int">
+                            <xsd:enumeration value="1" />
+                            <xsd:enumeration value="2" />
+                            <xsd:enumeration value="3" />
+                            <xsd:enumeration value="4" />
+                            <xsd:enumeration value="5" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element ref="Food" minOccurs="0" maxOccurs="10"/>
+                <xsd:element ref="TV" minOccurs="0" maxOccurs="10"/>
+                <xsd:element ref="Conditioner" minOccurs="0" maxOccurs="10"/>
+                <xsd:element ref="Apartments" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Cost">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Money">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:double">
+                            <xsd:minInclusive value="0" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element ref="Include"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="Include">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="Transport" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element ref="TV" minOccurs="0" maxOccurs="10"/>
+                <xsd:element ref="Conditioner" minOccurs="0" maxOccurs="10"/>
+                <xsd:element ref="Apartments" maxOccurs="unbounded"/>
+                <xsd:element ref="Food" minOccurs="0" maxOccurs="10"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
