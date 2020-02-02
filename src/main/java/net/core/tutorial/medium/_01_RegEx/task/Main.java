@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 public class Main {
 
     static int num;
-    public static String FILE_NAME = "c:/temp/text.txt";
+    public static String FILE_NAME = "e:/tmp/text.txt";
     public static String ENCODING = "utf-8";
 
     public static void main(String[] args) {

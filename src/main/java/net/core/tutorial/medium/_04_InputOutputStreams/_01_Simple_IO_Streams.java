@@ -12,7 +12,7 @@ public class _01_Simple_IO_Streams {
     public static void main(String[] args) throws IOException {
 
         InputStream src1 = new URL("http://google.com").openStream(); // Считывание страницы из инета в файл на диске
-        OutputStream dst1 = new FileOutputStream("d:/tmp/google1.html");
+        OutputStream dst1 = new FileOutputStream("e:/tmp/google1.html");
         copyByteOverByte(src1, dst1);
         src1.close();
         dst1.close();
@@ -22,7 +22,7 @@ public class _01_Simple_IO_Streams {
         src2.close();
 
         InputStream src3 = new URL("http://google.com").openStream(); // Считывание страницы из инета в файл на диске
-        OutputStream dst3 = new FileOutputStream("d:/tmp/google2.html");
+        OutputStream dst3 = new FileOutputStream("e:/tmp/google2.html");
         copyOverBuffer(src3, dst3);
         src3.close();
         dst3.flush();
