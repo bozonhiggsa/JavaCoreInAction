@@ -4,7 +4,7 @@ import java.io.InputStream;
 
 public class Demo {
 	
-	static final InputStream STD_IN = System.in;
+	//static final InputStream STD_IN = System.in;
 	
 	public static void main(String[] args) throws Exception {
 
