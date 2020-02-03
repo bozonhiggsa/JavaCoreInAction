@@ -41,7 +41,7 @@ public class SaverJAXB {
                 }
             });
         }
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        //marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         //marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, Constants.SCHEMA_LOCATION__URI);
         marshaller.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, xsdFileName);
         marshaller.marshal(touristVouchers, new File(xmlFileName));
