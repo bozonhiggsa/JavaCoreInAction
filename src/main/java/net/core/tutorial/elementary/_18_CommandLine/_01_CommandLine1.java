@@ -28,5 +28,4 @@ package net.core.tutorial.elementary._18_CommandLine;
  */
 
 public class _01_CommandLine1 {
-
 }
