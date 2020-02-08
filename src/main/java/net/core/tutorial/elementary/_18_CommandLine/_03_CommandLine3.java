@@ -82,6 +82,11 @@ package net.core.tutorial.elementary._18_CommandLine;
  Если в сборке несколько исполняемых файлов, то можно указывать разные имена исполняемых файлов,
  но запустится всё равно тот, который определён в манифесте.
 
+ Можно сразу, при сборке архива, включить в него файл MANIFEST.MF, расположив его в папке out
+
+ jar cvfm hello.jar MANIFEST.MF ../src/com/mycompany/app/* com/mycompany/app/*
+
+
  Создать исполняемый jar-файл легко при помощи Maven, прописав секцию <packaging>jar</packaging>.
 
  Перед тем как начать выполнение программы JVM анализирует её код. Она читает секции import,
@@ -99,5 +104,6 @@ package net.core.tutorial.elementary._18_CommandLine;
  встречается соответствующая инструкция.
 
  */
+
 public class _03_CommandLine3 {
 }
