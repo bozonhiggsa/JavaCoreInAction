@@ -86,6 +86,10 @@ package net.core.tutorial.elementary._18_CommandLine;
 
  jar cvfm hello.jar MANIFEST.MF ../src/com/mycompany/app/* com/mycompany/app/*
 
+ Альтернативой запуска Java приложений из командной строки является запуск их при помощи .bat файла (для Windows)
+ или .shell скрипта для Linux.
+ Необходимо лишь написать в файле .bat соответсвующую команду командной строки. И указать корректные пути к файлам
+ .jar, .class и др.
 
  Создать исполняемый jar-файл легко при помощи Maven, прописав секцию <packaging>jar</packaging>.
 
