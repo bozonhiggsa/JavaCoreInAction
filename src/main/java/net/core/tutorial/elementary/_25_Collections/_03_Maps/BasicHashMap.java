@@ -54,5 +54,19 @@ public class BasicHashMap {
         values.remove("DataScientist");
         for (Map.Entry<Integer, String> entry: map1.entrySet())
             System.out.println(entry.getKey() + " = " + entry.getValue());
+
+        System.out.println("--------------------------");
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(1,10);
+        map.put(16,1067);
+        map.put(2,20);
+        map.put(12,1012);
+        map.put(3,30);
+        map.put(10,100);
+        map.put(4,40);
+        for (Integer key: map.keySet())
+            System.out.println(key);
+
     }
 }
