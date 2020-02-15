@@ -6,7 +6,8 @@ Technologies:
 - Logback;
 - Json;
 - Guava;
-- Commons-fileupload.
+- Commons-fileupload;
+- Jackson (JSON).
 
 
 Prerequisites:
