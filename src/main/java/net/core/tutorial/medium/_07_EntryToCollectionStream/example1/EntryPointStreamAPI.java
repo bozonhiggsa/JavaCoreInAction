@@ -1,4 +1,4 @@
-package net.core.tutorial.medium._07_EntryToCollectionStream;
+package net.core.tutorial.medium._07_EntryToCollectionStream.example1;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
