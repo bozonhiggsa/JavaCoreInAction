@@ -1,6 +1,8 @@
 package net.core.tutorial.medium._07_EntryToCollectionStream.example2;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable{
     private String name;
     private String surname;
     private int id;
@@ -53,5 +55,16 @@ public class Employee {
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", id=" + id +
+                ", age=" + age +
+                ", position=" + position +
+                '}';
     }
 }

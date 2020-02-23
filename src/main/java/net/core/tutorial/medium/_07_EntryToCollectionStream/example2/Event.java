@@ -14,4 +14,13 @@ public class Event {
         this.dateTime = dateTime;
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "uuid=" + uuid +
+                ", dateTime=" + dateTime +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
