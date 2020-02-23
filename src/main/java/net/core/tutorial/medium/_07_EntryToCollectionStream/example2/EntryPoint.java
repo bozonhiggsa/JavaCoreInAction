@@ -43,6 +43,10 @@ public class EntryPoint {
     );
 
     public static void main(String[] args) throws IOException {
+        // Ways to create streams
+        System.out.println("###################################");
+        System.out.println("Ways to create streams:");
+
         // Create stream of lines from file
         Stream<String> lines = Files.lines(Paths.get("some_text.txt"));
         // Create stream of objects from some directory
@@ -94,6 +98,10 @@ public class EntryPoint {
 
         // Concatenate two streams. Origin streams will close after concat()
         Stream<String> concat = Stream.concat(stringsStream, build);
+
+        // Ways to terminate stream
+        System.out.println("###################################");
+        System.out.println("Ways to terminate stream:");
 
         streamFromArray.forEach(System.out :: println);
         System.out.println("-------------------");
@@ -161,8 +169,17 @@ public class EntryPoint {
         Optional<Employee> minAgeEmployee = employees.stream().min((emp1, emp2) -> emp1.getAge() - emp2.getAge());
         System.out.println("Employee with max age is " + minAgeEmployee);
 
+        // for parallel stream is guaranteed excerpting of first element with findFirst()
         System.out.println("---------------------");
-        
+        System.out.println(employees.parallelStream().findAny());
+        System.out.println(employees.parallelStream().findFirst());
+        System.out.println(employees.stream().findAny());
+        System.out.println(employees.stream().findFirst());
+
+        System.out.println("---------------------");
+        System.out.println(employees.stream().noneMatch(emp -> emp.getAge() > 100));
+        System.out.println(employees.stream().anyMatch(emp -> emp.getAge() > 80));
+        System.out.println(employees.stream().allMatch(emp -> emp.getAge() > 30));
 
 
 

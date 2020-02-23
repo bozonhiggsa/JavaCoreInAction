@@ -40,11 +40,7 @@ public class Test {
         System.out.println();
         System.out.println("~~~");
         
-        col.forEach(new Consumer<Integer>() {
-            public void accept(Integer x) {
-                System.out.print(x + " ");
-            }
-        });
+        col.forEach(x -> System.out.print(x + " "));
         System.out.println();
 
         col.forEach((x) -> System.out.print(x + " "));
@@ -54,7 +50,7 @@ public class Test {
 		System.out.println();
 
         String res = col.stream()
-                .map (x -> x.toString ())
+                .map(Object::toString)
                 .collect(Collectors.joining (" "));
         System.out.println(res);
 
@@ -63,6 +59,5 @@ public class Test {
         System.out.println(sb);
 
     }
-
 }
 

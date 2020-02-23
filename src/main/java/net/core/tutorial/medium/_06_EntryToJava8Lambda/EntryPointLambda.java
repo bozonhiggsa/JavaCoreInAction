@@ -80,11 +80,11 @@ public class EntryPointLambda {
     }
 
     static void writeVariant(String phrase){
-        System.out.println("Another variant: " + phrase);
+        System.out.println("Variant: " + phrase);
     }
 
     void writeAnotherVariant(String phrase){
-        System.out.println("And other variant: " + phrase);
+        System.out.println("And another variant: " + phrase);
     }
 
 }
