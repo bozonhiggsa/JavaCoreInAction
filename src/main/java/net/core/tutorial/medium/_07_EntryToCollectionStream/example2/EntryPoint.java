@@ -181,7 +181,108 @@ public class EntryPoint {
         System.out.println(employees.stream().anyMatch(emp -> emp.getAge() > 80));
         System.out.println(employees.stream().allMatch(emp -> emp.getAge() > 30));
 
+        // Intermediate operation with stream
+        System.out.println("###################################");
+        System.out.println("Intermediate operation:");
 
+        // transformation of primitive to objects
+        IntStream.of(1,2,3,4,5,6,9).mapToLong(Long :: valueOf);
+        IntStream.of(4,6,7,8,9,0,91).mapToObj(
+                value -> new Event(UUID.randomUUID(), LocalDateTime.of(value, 12, 20, 7, 12), "")
+        );
+
+        // only unique elements
+        IntStream.of(1,2,3,4,5,5,5,5,5,9).distinct();
+
+        // filter of sequence
+        employees.stream().filter(
+                emp -> emp.getPosition() == Position.CHIEF
+        )
+                .forEach(System.out :: println);
+
+        // skip n elements of stream
+        System.out.println("------------------------");
+        employees.stream().skip(10)
+                .forEach(System.out :: println);
+
+        // only first n elements of stream
+        System.out.println("------------------------");
+        employees.stream().limit(5)
+                .forEach(System.out :: println);
+
+        // sorted stream
+        System.out.println("------------------------");
+        employees.stream()
+                .sorted((emp1, emp2) -> emp1.getAge() - emp2.getAge())
+                .forEach(System.out :: println);
+        // sorted stream with Comparator
+        System.out.println("------------------------");
+        employees.stream()
+                .sorted(Comparator.comparing(Employee :: getAge))
+                .forEach(System.out :: println);
+
+        // sorted stream for Comparable objects
+        System.out.println("------------------------");
+        departments.stream()
+                .sorted()
+                .forEach(System.out :: println);
+
+        // mapping elements of stream to anything
+        System.out.println("------------------------");
+        departments.stream()
+                .sorted()
+                .map(Department :: getChilds)
+                .forEach(System.out :: println);
+
+        // change elements of stream or performing some action with them
+        System.out.println("------------------------");
+        departments.stream()
+                .sorted()
+                .peek(dep -> dep.setName("Amazon"))
+                .forEach(System.out :: println);
+
+        System.out.println("------------------------");
+        Stream.of("one", "two", "three", "four")
+                .filter(e -> e.length() > 3)
+                .peek(e -> System.out.println("Filtered value: " + e))
+                .map(String::toUpperCase)
+                .peek(e -> System.out.println("Mapped value: " + e))
+                .collect(Collectors.toList())
+                .forEach(System.out :: println);
+
+        // Since Java 9
+        // perform some action until condition is true
+        //System.out.println("-------------------------");
+        //employees.stream()
+        //        .takeWhile(emp -> emp.getAge() > 50)
+        //        .forEach(System.out :: println);
+        // perform some action after condition is true
+        //System.out.println("-------------------------");
+        //employees.stream()
+        //        .dropWhile(emp -> emp.getAge() > 50)
+        //        .forEach(System.out :: println);
+
+        System.out.println("------------------------");
+        // expansion range of stream values
+        IntStream.of(20, 40, 60, 80, 100)
+                .flatMap(val -> IntStream.of(val - 10, val))
+                .forEach(System.out :: println);
+
+        System.out.println("------------------------");
+        // intermediate methods are lazy and perform only after terminal method
+        Stream<String> nameStream = employees.stream()
+                .sorted(Comparator.comparing(Employee::getAge))
+                .limit(5)
+                .map(Employee::getName);
+        System.out.println(nameStream);
+        System.out.println("------------------------");
+        nameStream.forEach(System.out :: println);
+
+        System.out.println("------------------------");
+        IntSummaryStatistics intSummaryStatistics = employees.stream()
+                .mapToInt(Employee::getAge)
+                .summaryStatistics();
+        System.out.println(intSummaryStatistics);
 
     }
 

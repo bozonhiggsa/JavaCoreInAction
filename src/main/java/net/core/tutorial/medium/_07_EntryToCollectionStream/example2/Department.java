@@ -3,7 +3,7 @@ package net.core.tutorial.medium._07_EntryToCollectionStream.example2;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Department {
+public class Department implements Comparable<Department>{
     private int id;
     private int parent;
     private String name;
@@ -51,5 +51,10 @@ public class Department {
                 ", name='" + name + '\'' +
                 ", childs=" + childs +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Department o) {
+        return this.getName().compareTo(o.getName());
     }
 }
