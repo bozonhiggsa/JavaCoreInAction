@@ -284,6 +284,19 @@ public class EntryPoint {
                 .summaryStatistics();
         System.out.println(intSummaryStatistics);
 
+        System.out.println("------------------------");
+        // using Collectors.groupingBy()
+        Map<Position, List<Employee>> grouping1 = employees.stream()
+                .filter(emp -> emp.getAge() < 50)
+                .sorted(Comparator.comparing(Employee::getAge))
+                .collect(Collectors.groupingBy(
+                        Employee::getPosition
+                ));
+        for(Map.Entry<Position, List<Employee>> map: grouping1.entrySet()){
+            System.out.println(map.getKey() + " : " + map.getValue());
+        }
+
+
     }
 
     // recursion for adding childs to parent
