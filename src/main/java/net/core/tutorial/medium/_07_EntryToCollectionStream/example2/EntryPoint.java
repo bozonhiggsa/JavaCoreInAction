@@ -286,16 +286,64 @@ public class EntryPoint {
 
         System.out.println("------------------------");
         // using Collectors.groupingBy()
-        Map<Position, List<Employee>> grouping1 = employees.stream()
+        // saving results in a map instance
+        Map<Position, List<Employee>> positionListMap = employees.stream()
                 .filter(emp -> emp.getAge() < 50)
                 .sorted(Comparator.comparing(Employee::getAge))
                 .collect(Collectors.groupingBy(
                         Employee::getPosition
                 ));
-        for(Map.Entry<Position, List<Employee>> map: grouping1.entrySet()){
+        for(Map.Entry<Position, List<Employee>> map: positionListMap.entrySet()){
             System.out.println(map.getKey() + " : " + map.getValue());
         }
 
+        System.out.println("------------------------");
+        // saving results in a map instance with complex key
+        Map<Tuple, List<Employee>> tupleListMap = employees.stream()
+                .collect(Collectors.groupingBy(emp -> new Tuple(emp.getPosition(), emp.getAge())));
+        for(Map.Entry<Tuple, List<Employee>> map : tupleListMap.entrySet()){
+            System.out.println(map.getKey() + " : " + map.getValue());
+        }
+
+        System.out.println("-----------------------");
+        // modifying the returned map value type
+        Map<Position, Set<Employee>> positionSetMap = employees.stream()
+                .collect(Collectors.groupingBy(
+                        Employee::getPosition, Collectors.toSet()
+                ));
+        for(Map.Entry<Position, Set<Employee>> map : positionSetMap.entrySet()){
+            System.out.println(map.getKey() + " : " + map.getValue());
+        }
+
+        System.out.println("-----------------------");
+        // grouping by multiple fields
+        Map<Position, Map<Integer, List<Employee>>> positionMapMap = employees.stream()
+                .collect(Collectors.groupingBy(
+                        Employee::getPosition, Collectors.groupingBy(Employee::getAge)
+                ));
+        for(Map.Entry<Position, Map<Integer, List<Employee>>> map : positionMapMap.entrySet()){
+            System.out.println(map.getKey() + " : " + map.getValue());
+        }
+
+        System.out.println("-----------------------");
+        // getting the sum from grouped results
+        Map<Position, Integer> positionSumAgesMap = employees.stream()
+                .collect(Collectors.groupingBy(
+                        Employee::getPosition, Collectors.summingInt(Employee::getAge)
+                ));
+        for(Map.Entry<Position, Integer> map : positionSumAgesMap.entrySet()){
+            System.out.println(map.getKey() + " : " + map.getValue());
+        }
+
+        System.out.println("-----------------------");
+        // getting the sum from grouped results
+        Map<Position, Double> positionAverageAgesMap = employees.stream()
+                .collect(Collectors.groupingBy(
+                        Employee::getPosition, Collectors.averagingInt(Employee::getAge)
+                ));
+        for(Map.Entry<Position, Double> map : positionAverageAgesMap.entrySet()){
+            System.out.println(map.getKey() + " : " + map.getValue());
+        }
 
     }
 
