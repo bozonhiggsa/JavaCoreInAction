@@ -19,6 +19,11 @@ package net.core.tutorial.elementary._18_CommandLine;
  *
  * f:\jms>java -cp %CP% net.jms.rabbitmq.application.Recv
  *
+ * Запуск пользовательского класса на исполнение с передачей аргументов в метод main
+ * и перенаправление результата вывода System.out.println в файл
+ *
+ * f:\jms>java -cp %CP% net.jms.rabbitmq.application.example4.ReceiveLogsDirect warning error > logs_from_rabbit.log
+ *
  */
 
 public class _05_CommandLine5 {
