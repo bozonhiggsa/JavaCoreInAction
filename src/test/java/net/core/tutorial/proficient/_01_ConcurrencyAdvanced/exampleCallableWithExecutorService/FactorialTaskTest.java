@@ -57,7 +57,7 @@ public class FactorialTaskTest {
     public void whenExceptionTimeoutException() throws ExecutionException, InterruptedException, TimeoutException {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        FactorialTask task = new FactorialTask(50);
+        FactorialTask task = new FactorialTask(1000000);
         Future<Integer> future = executorService.submit(task);
         Integer result = future.get(1, TimeUnit.NANOSECONDS);
     }

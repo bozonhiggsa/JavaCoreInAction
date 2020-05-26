@@ -1,5 +1,6 @@
 package net.core.tutorial.medium._05_Serialization.example2.jaxb;
 
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;

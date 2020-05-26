@@ -9,7 +9,7 @@ import java.io.*;
  */
 public class _10_FileChooser {
 
-    private static String FILE_NAME_COPY = "e:/tmp/image.jpg";
+    private static String FILE_NAME_COPY = "home/ihor/temp/image.jpg";
 
     public static void main(String[] args) throws IOException {
 

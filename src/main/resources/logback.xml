@@ -13,7 +13,7 @@
             <defaultValue>basic</defaultValue>
         </discriminator>
         <sift>
-            <appender name="/tmp/log-${LOGGERID}" class="ch.qos.logback.core.FileAppender">
+            <appender name="home/ihor/temp/log-${LOGGERID}" class="ch.qos.logback.core.FileAppender">
                 <file>d:/tmp/log-${LOGGERID}.log</file>
                 <layout class="ch.qos.logback.classic.PatternLayout">
                     <pattern>%d [%thread] %-5level %mdc %logger{1} - %msg %n</pattern>

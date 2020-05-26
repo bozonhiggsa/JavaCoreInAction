@@ -13,7 +13,7 @@ import java.util.zip.GZIPOutputStream;
 
 public class _07_CreateUniqueStream {
 
-    private static String FILE_NAME = "e:/tmp/entity.txt";
+    private static String FILE_NAME = "home/ihor/temp/entity.txt";
 
     public static void main(String[] args) throws IOException {
 

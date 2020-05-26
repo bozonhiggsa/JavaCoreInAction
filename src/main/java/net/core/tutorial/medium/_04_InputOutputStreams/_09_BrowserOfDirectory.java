@@ -10,7 +10,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 public class _09_BrowserOfDirectory {
 
-    private static String FILE_NAME = "e:/tmp/";
+    private static String FILE_NAME = "home/ihor/temp/";
 
     public static void main(String[] args) {
 

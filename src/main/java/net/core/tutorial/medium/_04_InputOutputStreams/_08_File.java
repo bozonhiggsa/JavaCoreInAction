@@ -137,8 +137,8 @@ import java.util.Date;
 
 public class _08_File {
 
-    //private static String FILE_NAME = "d:/tmp/someFile.txt";
-    private static String FILE_NAME = "e:/tmp/";
+    //private static String FILE_NAME = "home/ihor/temp/someFile.txt";
+    private static String FILE_NAME = "home/ihor/temp/";
 
     public static void main(String[] args) throws IOException {
 
